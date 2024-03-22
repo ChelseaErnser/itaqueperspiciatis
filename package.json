@@ -1,0 +1,69 @@
+{
+  "name": "itaqueperspiciatis",
+  "version": "1.0.0",
+  "description": "Contains sql package manager (sqlpm) and re-usable database schema.",
+  "keywords": [
+    "id"
+  ],
+  "author": "ClementineYost",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/ChelseaErnser/itaqueperspiciatis.git/issues"
+  },
+  "scripts": {
+    "build": "yarn lerna run build",
+    "build:watch": "yarn lerna run build:watch",
+    "develop": "yarn lerna run develop",
+    "test:unit": "yarn build && jest --config=./jest.unit.config.ts",
+    "test:unit:watch": "yarn build && jest --config=./jest.unit.config.ts --watch --coverage --verbose",
+    "test:unit:watch:no-coverage": "jest --config=./jest.unit.config.ts --watch --verbose",
+    "test:integration": "set -o allexport; source .env; source .env.local; yarn build && jest --config=./jest.integration.config.ts",
+    "test:integration:watch": "set -o allexport; source .env; source .env.local; yarn build && jest --config=./jest.integration.config.ts --watch --coverage --verbose",
+    "test:integration:watch:no-coverage": "set -o allexport; source .env; source .env.local; jest --config=./jest.integration.config.ts --watch --verbose",
+    "test:postgresql": "set -o allexport; source .env; source .env.local; jest --config=./jest.postgresql.config.ts --verbose",
+    "test:postgresql:watch": "set -o allexport; source .env; source .env.local; jest --config=./jest.postgresql.config.ts --watch --verbose",
+    "publish:all": "yarn test:integration && yarn build && yarn lerna publish",
+    "lerna:create": "yarn lerna create -y",
+    "docker:up": "set -o allexport; source .env; source .env.local; set +o allexport; docker compose -f docker-compose.yml up",
+    "docker:down": "set -o allexport; source .env; source .env.local; set +o allexport; docker compose -f docker-compose.yml down",
+    "docker:build": "set -o allexport; source .env; source .env.local; set +o allexport; docker compose -f docker-compose.yml build",
+    "docker:destroy": "yarn docker:down ; docker rmi $(docker images --filter \"reference=sqlpm*\" -q) -f; docker volume rm sqlpm_sqlpm_testing_db_data",
+    "tsc": "echo \"You probably don't want to run tsc at the root of this mono-repo. It creates maps and types for every ts file!\"",
+    "sqlpm": "TS_NODE_SKIP_IGNORE=true yarn ts-node --cwd $(pwd) ./packages/sqlpm/src/index.ts"
+  },
+  "workspaces": [
+    "packages/*",
+    "schemas/postgresql/*"
+  ],
+  "devDependencies": {
+    "@jest/fake-timers": "^29.3.1",
+    "@types/clone": "^2.1.1",
+    "@types/jest": "^29.2.3",
+    "@types/jsdom": "^20.0.0",
+    "@types/node": "^18.11.3",
+    "@types/uuid": "^8.3.4",
+    "@types/webpack": "^5.28.0",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "eslint": "^8.26.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^27.1.1",
+    "jest": "^29.3.1",
+    "jest-environment-jsdom": "^29.2.2",
+    "jsdom": "^20.0.1",
+    "jsdom-worker": "^0.3.0",
+    "lerna": "^6.0.3",
+    "ts-jest": "^29.0.3",
+    "ts-loader": "^9.4.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4",
+    "uuid": "^9.0.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChelseaErnser/itaqueperspiciatis.git"
+  }
+}

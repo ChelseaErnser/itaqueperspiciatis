@@ -1,0 +1,10 @@
+{
+  "name": "node-package-with-schema-dependency",
+  "version": "0.0.0",
+  "description": "A package that has no schema dependencies",
+  "license": "MIT",
+  "main": "./src/index.ts",
+  "dependencies": {
+    "@sqlpm/sqlpm-example-postgresql": "^0.0.0"
+  }
+}

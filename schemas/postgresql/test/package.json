@@ -1,0 +1,31 @@
+{
+  "name": "@sqlpm/test-postgresql",
+  "version": "1.0.6",
+  "description": "Contains resources that can be used for testing.",
+  "keywords": [
+    "sqlpm",
+    "database schema",
+    "postgresql"
+  ],
+  "author": "Eric Hosick <erichosick@gmail.com>",
+  "homepage": "https://github.com/erichosick/sqlpm/tree/main/schemas/postgresql/test",
+  "bugs": {
+    "url": "https://github.com/erichosick/sqlpm/issues",
+    "email": "erichosick@gmail.com"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erichosick/sqlpm.git"
+  },
+  "database": {
+    "platform": "postgresql"
+  },
+  "dependencies": {
+    "@sqlpm/sqlpm-lib-ts": "^1.0.4"
+  }
+}

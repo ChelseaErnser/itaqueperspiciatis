@@ -1,0 +1,7 @@
+{
+  "name": "node-package-no-schema",
+  "version": "0.0.0",
+  "description": "A package that has no schema dependencies",
+  "license": "MIT",
+  "main": "./src/index.ts"
+}

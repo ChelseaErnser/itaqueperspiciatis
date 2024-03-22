@@ -1,0 +1,40 @@
+{
+  "name": "@sqlpm/postgresql-client-ts",
+  "version": "1.1.3",
+  "description": "`@sqlpm/postgresql-client-ts` is a typescript library that wraps the porsager/postgres library.",
+  "keywords": [
+    "typescript",
+    "postgresql",
+    "client"
+  ],
+  "author": "Eric Hosick <erichosick@gmail.com>",
+  "homepage": "https://github.com/erichosick/sqlpm/tree/main/packages/postgresql-client-ts",
+  "bugs": {
+    "url": "https://github.com/erichosick/sqlpm/issues",
+    "email": "erichosick@gmail.com"
+  },
+  "license": "MIT",
+  "main": "./src/index.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erichosick/sqlpm.git"
+  },
+  "dependencies": {
+    "@sqlpm/types-ts": "^1.2.3",
+    "postgres": "^3.3.2"
+  },
+  "scripts": {
+    "ts-node:cwd": "yarn ts-node --cwd $(pwd) ./src/index.ts"
+  }
+}
